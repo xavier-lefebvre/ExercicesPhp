@@ -6,9 +6,9 @@ nombres s’arrête lorsque l’utilisateur entre un zéro.*/
 $myArray = [];
 $demand = 1;
 while($demand != 0) {
-    $demand = readLine("Entrer un nombre");
+    $demand = readLine("Entrer un nombre : ");
     array_push($myArray, $demand);
     
 }
-echo "Le nombre le plus grand est " . max($myArray);
+echo "Le nombre le plus grand est " . max($myArray) . "\r\n";
 ?>

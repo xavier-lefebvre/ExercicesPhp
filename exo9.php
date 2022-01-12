@@ -11,19 +11,26 @@ function decompose($number) {
     $dizaines = (((($number - $unites) / 10) % 10) * 10);
     $centaines = ($number - ($dizaines + $unites ));
     
-    // test 100th
+    // test 100 ! conditions fausses !
     if ($number > 99) {
         if ($unites === 5) {
-            echo (($centaines / 100) + ($dizaines / 10)) . " " . $liquide[2] . " et " . 1 . " " . $liquide[1] . ".\r\n";
+            echo (($centaines / 10) + ($dizaines / 10)) . " " . $liquide[2] . " et " . 1 . " " . $liquide[1] . ".\r\n";
         } else {
             if ($unites > 5) {
-            echo (($centaines / 100) + ($dizaines / 10)) . " " . $liquide[2] . " , " . ($unites % 5) . " " . $liquide[1]. " et " . $unites . $liquide[0] . ".\r\n";
-            } else {
-                echo (($centaines / 100) + ($dizaines / 10)) . " " . $liquide[2] . " et " . $unites . $liquide[0];
+            echo (($centaines / 10) + ($dizaines / 10)) . " " . $liquide[2] . " , " . ($unites % 5) . " " . $liquide[1]. " et " . $unites . $liquide[0] . ".\r\n";
+            } elseif ($unites < 5) {
+                echo (($centaines / 10) + ($dizaines / 10)) . " " . $liquide[2] . " et " . $unites . $liquide[0];
             }
         }
-        
-    // test 10st  
+
+    /* si nombre > 99 
+        si unites === 5 / afficher n billet de 10 + n billet de 5
+        sinon 
+            si unites > 5 / afficher n billet de 10 + n billet de 5 + n pieces de 1
+            sinonsi unites < 5 / afficher n billet de 10 + n pieces de 1 
+    */    
+
+    // test 10  
     } elseif ($number > 9 && $number < 100) {
         if ($unites === 5) {
             echo ($dizaines / 10) . " " . $liquide[2] . " et " . 1 . " " . $liquide[1] . ".\r\n";
@@ -51,7 +58,6 @@ function decompose($number) {
     }
     
 } 
-// decompose(196);
 
 function rendLargent($facture, $paiement) {
     $rendu = ($paiement - array_sum($facture));
@@ -69,7 +75,7 @@ function rendLargent($facture, $paiement) {
     } elseif (array_sum($facture) === $paiement)
     echo "Le compte est bon ! \r\n";
 }
-rendLargent([10, 2, 45, 183, 66], 321);
+rendLargent([10, 3, 1, 15, 11], 56);
 
 
 
