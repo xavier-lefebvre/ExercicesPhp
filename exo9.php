@@ -11,7 +11,7 @@ function decompose($number) {
     $dizaines = (((($number - $unites) / 10) % 10) * 10);
     $centaines = ($number - ($dizaines + $unites ));
     
-    // test 100 ! conditions fausses !
+    // test 100th ! these tests are wrong.
     if ($number > 99) {
         if ($unites === 5) {
             echo (($centaines / 10) + ($dizaines / 10)) . " " . $liquide[2] . " et " . 1 . " " . $liquide[1] . ".\r\n";
