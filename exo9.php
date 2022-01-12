@@ -75,7 +75,7 @@ function rendLargent($facture, $paiement) {
     } elseif (array_sum($facture) === $paiement)
     echo "Le compte est bon ! \r\n";
 }
-rendLargent([10, 3, 1, 15, 11], 56);771000
+rendLargent([10, 3, 1, 15, 11], 56);
 
 
 
